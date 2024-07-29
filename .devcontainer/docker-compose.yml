@@ -1,0 +1,23 @@
+services:
+  web:
+    build: .
+    ports:
+      - 3000
+    restart: unless-stopped
+    volumes:
+      - ..:/workspace:cached
+    networks:
+      - traefik
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.template-web.rule=Host(`${URL}`)"
+      - "traefik.http.routers.template-web.tls=true"
+      - "traefik.http.routers.template-web.tls.certresolver=sslresolver"
+    command: sleep infinity
+    env_file:
+      - ../.env
+    environment:
+      - TZ=Europe/Berlin
+networks:
+  traefik:
+    external: true

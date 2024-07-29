@@ -1,0 +1,13 @@
+{
+    "name": "vite-template",
+    "dockerComposeFile": "docker-compose.yml",
+    "service": "web",
+    "workspaceFolder": "/workspace",
+    "customizations": {
+      "vscode": {
+        "extensions": ["esbenp.prettier-vscode"]
+      }
+    },
+    "remoteUser": "node"
+  }
+  
